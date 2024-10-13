@@ -1,0 +1,23 @@
+health-checks:
+  project1:
+    - name: customer-service
+      url: https://customer-service/health-check
+      check-by: status-code
+      notification: project1-slack
+    - name: accounting-service
+      url: https://accounting-service/health-check
+      check-by: status-code
+      notification: project1-slack
+  project2:
+    - name: authorization-service
+      url: https://authorization-service/health-check
+      check-by: status-code
+      notification: project2-slack
+
+notifications:
+  project1-slack:
+    type: slack-webhook
+    url: https://hooks.slack.com/services/....
+  project2-slack:
+    type: slack-webhook
+    url: https://hooks.slack.com/services/....
